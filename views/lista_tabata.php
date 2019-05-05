@@ -17,8 +17,13 @@
     $tabatas = TabataController::tabataById( UserSesion::getID() );
 
 ?>
-<div class="text-center h1">Lista Tabata</div>
 
+
+
+<div class="text-center h1">Lista Tabata</div>
+<div class="text-right pb-5 pr-5">
+    <a href="crearTabata.php" class="btn btn-success btn-sm btn-round text-white  " >Crear tabata</a>
+</div>
 <div class="container">
     <div class="table-responsive">
         <table class="table">
