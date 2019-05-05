@@ -189,3 +189,13 @@ i{
 }
 
 
+.link{
+    color: #3498db;
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+

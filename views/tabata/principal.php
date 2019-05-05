@@ -115,6 +115,6 @@
         </div>
     </div>
 </main>
-<script src="../public/js/reloj.js"></script>
+
 <script src="../public/js/tabata.js"></script>
 
