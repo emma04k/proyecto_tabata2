@@ -45,6 +45,11 @@ class UserSesion{
         return $_SESSION['nombre'];
     }
 
+    public static function getID()
+    {
+        return $_SESSION['user_id'];
+    }
+
     public static function privateRoute()
     {
         if( ! isset($_SESSION['user_id']) )
