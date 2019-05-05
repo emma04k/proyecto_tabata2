@@ -1,3 +1,6 @@
+<?php require_once './../controller/userSesion.php';
+UserSesion::privateRoute();
+?>
 <nav class="navbar navbar-expand-lg  row text-white info-title" id="fondo-color">
     <!-- Navbar content -->
 
@@ -62,3 +65,4 @@
 <div id="contenedor">
 
 </div>
+<script src="../public/js/reloj.js"></script>
