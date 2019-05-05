@@ -12,6 +12,10 @@
 <body>
 
 <?php include 'common/nav.php';
+    include_once './../controller/tabata.controller.php';
+
+    $tabatas = TabataController::tabataById( UserSesion::getID() );
+
 ?>
 <div class="text-center h1">Lista Tabata</div>
 
@@ -26,16 +30,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td width="10%"></td>
-                    <td width="70%">
-                        <h4><a href="#" class="font-weight-bold link">Nombre del tabata</a></h4>
-                    </td>
-                    <td width="20%">
-                        <button class="btn btn-warning btn-sm btn-round">Editar</button>
-                        <button class="btn btn-danger btn-sm btn-round">Eliminar</button>
-                    </td>
-                </tr>
+                <?php foreach ( $tabatas as $tabata ){ ?>
+                    <tr>
+                        <td width="10%"><?= $tabata['tabataID'] ?></td>
+                        <td width="70%">
+                            <h4><a href="mostrar_tabata.php?id=<?=$tabata['tabataID']?>" class="font-weight-bold link"><?= $tabata['tabataNombre'] ?></a></h4>
+                        </td>
+                        <td width="20%">
+                            <a      href="editar_tabata.php?id=<?=$tabata['tabataID']?>"
+                                    class="btn btn-warning btn-sm btn-round text-white">Editar</a>
+                            <button class="btn btn-danger btn-sm btn-round">Eliminar</button>
+                        </td>
+                    </tr>
+            <?php } ?>
             </tbody>
         </table>
     </div>
