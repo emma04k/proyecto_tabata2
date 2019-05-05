@@ -58,7 +58,7 @@ class Timer {
         if( this.isZero() )return;
         if (this.seg === 0) {
             this.min--;
-            this.seg = 60;
+            this.seg = 59;
 
 
         } else {
@@ -69,7 +69,7 @@ class Timer {
     
     aumentar()
     {
-        if( this.seg === 60 )
+        if( this.seg >= 59 )
         {
             this.min ++;
             this.seg = 0;
@@ -105,9 +105,10 @@ class Tabata {
         this.preparation    = new Timer(0,10);
         this.work           = new Timer(0,20);
         this.rest           = new Timer(0,10);
-        this.cycles         = new Contador(8);
+        this.cycles         = new Contador(1);
         this.num            = new Contador(1);
         this.prepare        = true;
+        this.e_types         = [{ id: 0, nombre: ''}];
     }
 
     set( field, type )
@@ -155,8 +156,23 @@ const tabata = new Tabata();
 $('.accion-btn').on('click', function (e) {
     const element = e.currentTarget;
     const toSet = element.parentNode.id;
+    const tipo = element.getAttribute('tipo');
     tabata.set( toSet, element.getAttribute('tipo') );
-    refrescar();
+
+    if( element.getAttribute)
+        refrescar();
+
+    if( toSet === 'cycles' )
+    {
+        if( tipo === 'aumentar')
+            tabata.e_types.push({ id: 0, nombre: ''});
+        else
+            tabata.e_types.pop();
+
+        console.log( tabata.e_types.length )
+        renderElegirEjercicios();
+    }
+
 } );
 
 

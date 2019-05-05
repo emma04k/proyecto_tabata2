@@ -8,4 +8,16 @@ class TabataController {
     {
         return TabataModel::obtenerTabta( $id )->fetchAll();
     }
+
+
+    public static function crearTabata()
+    {
+
+    }
+
+
+    public static function obtenerTabataEjercicios()
+    {
+        return TabataModel::getTipoEjercicios()->fetchAll();
+    }
 }

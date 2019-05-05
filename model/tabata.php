@@ -13,4 +13,11 @@ class TabataModel extends DB
     }
 
 
+    public static function getTipoEjercicios()
+    {
+        $query = self::connect()->query("SELECT * FROM `tipoejercicio`");
+
+        return $query;
+    }
+
 }

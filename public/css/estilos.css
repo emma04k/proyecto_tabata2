@@ -178,6 +178,13 @@ i{
     font-size: 30px;
 }
 
+.main-container
+{
+    background-color: #171941;
+    color: #ecf0f1;
+    font-size: 30px;
+}
+
 .timer-text
 {
     font-family: 'Julius Sans One', sans-serif;
