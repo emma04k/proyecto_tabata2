@@ -16,6 +16,7 @@
 
     $tabatas = TabataController::tabataById( UserSesion::getID() );
 
+
 ?>
 
 
@@ -44,7 +45,10 @@
                         <td width="20%">
                             <a      href="editar_tabata.php?id=<?=$tabata['tabataID']?>"
                                     class="btn btn-warning btn-sm btn-round text-white">Editar</a>
-                            <button class="btn btn-danger btn-sm btn-round">Eliminar</button>
+
+                            <a href="async/eliminar.php?id=<?=$tabata['tabataID']?>">
+                                <button class="btn btn-danger btn-sm btn-round">Eliminar</button></a>
+
                         </td>
                     </tr>
             <?php } ?>

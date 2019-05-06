@@ -20,4 +20,18 @@ class TabataModel extends DB
         return $query;
     }
 
+    public static function eliminarTabata($id)
+    {
+        $query=self::connect()->prepare('DELETE FROM tabata WHERE id=:id');
+        $query->execute(['id'=>$id]);
+
+        if($query->execute()){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
 }

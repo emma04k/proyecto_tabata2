@@ -86,7 +86,7 @@
                 if( data.encontrado )
                 {
                     console.log('Pasa por aca');
-                    window.location.href = "./views/tabata.php";
+                    window.location.href = "./views/lista_tabata.php";
                 }else 
                 {
                     $alert_form.text('Usuario no encontrado');

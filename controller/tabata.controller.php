@@ -15,6 +15,12 @@ class TabataController {
 
     }
 
+    public static function eliminar($id)
+    {
+        TabataModel::eliminarTabata($id);
+
+    }
+
 
     public static function obtenerTabataEjercicios()
     {
