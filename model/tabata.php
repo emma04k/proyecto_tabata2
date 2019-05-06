@@ -34,4 +34,16 @@ class TabataModel extends DB
 
     }
 
+    public static function  editarTabata($datos)
+    {
+        $query=self::connect()->prepare('UPDATE tabata SET ');
+        $query->execute([]);
+
+        if($query->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
