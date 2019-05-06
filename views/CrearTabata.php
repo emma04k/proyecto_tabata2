@@ -16,17 +16,9 @@
     <?php include 'tabata/principal.php' ?>
 
     <div class="mt-5 mb-5 container">
-        <table class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th>Ciclo #</th>
-                    <th> Ejercicio</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-ejercicios-body">
-
-            </tbody>
-        </table>
+        <div class="input-group">
+            <input class="form-control" id="nombre_tabata" value="" placeholder="Nombre del tabata"/>
+        </div>
     </div>
 
     <button class="btn btn-success btn-block" id="btn_crear">Crear</button>

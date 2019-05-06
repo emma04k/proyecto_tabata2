@@ -46,4 +46,15 @@ class TabataModel extends DB
         }
     }
 
+
+    public static  function crear_tabata( $data )
+    {
+        $query = self::connect()->query(
+            "INSERT INTO `tabata` (`id`, `nombre`, `tPreparacion`, `tActividad`, `tDescanso`, `numSeries`, `numRondas`, `idUsuario`) VALUES (NULL, '$data[nombre_tabata]', '$data[tPreparacion]', '$data[tActividad]', '$data[tDescanso]', '$data[numSeries]', '$data[numRondas]', '$data[idUsuario]');");
+        return true;
+    }
+
+
 }
+
+

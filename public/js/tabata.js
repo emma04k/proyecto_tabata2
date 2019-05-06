@@ -94,6 +94,14 @@ class Timer {
     {
         return FormatNumber( this.min ) +':'+ FormatNumber(this.seg);
     }
+
+    toJS()
+    {
+        return {
+            min: this.min,
+            seg: this.seg
+        }
+    }
 }
 
     
@@ -108,7 +116,7 @@ class Tabata {
         this.cycles         = new Contador(1);
         this.num            = new Contador(1);
         this.prepare        = true;
-        this.e_types         = [{ id: 0, nombre: ''}];
+        this.e_types         = [{ id: 1, nombre: 'Ejercicio1'}];
     }
 
     set( field, type )
@@ -129,6 +137,18 @@ class Tabata {
         this.rest.reset();
         this.cycles.reset();
         this.work.reset();
+    }
+
+    toJS()
+    {
+        return {
+            preparation: this.preparation.toJS(),
+            work: this.work.toJS(),
+            rest: this.rest.toJS(),
+            cycles: this.cycles.value,
+            num: this.num.value,
+            e_types: this.e_types
+        }
     }
 }
 
