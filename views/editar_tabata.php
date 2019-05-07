@@ -15,6 +15,8 @@
 ?>
 
 <button class="btn btn-success btn-block" id="btn_guardar">Guardar</button>
+
+<script src="../public/js/crear_tabata.js"></script>
 </body>
 </html>
 

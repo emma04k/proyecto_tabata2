@@ -26,7 +26,7 @@ class Contador {
     }
 
     disminuir() {
-        if(this.value !== 1){
+        if(this.value !== 0){
             this.value--;
 
         }
@@ -113,9 +113,10 @@ class Tabata {
         this.preparation    = new Timer(0,10);
         this.work           = new Timer(0,20);
         this.rest           = new Timer(0,10);
-        this.cycles         = new Contador(1);
+        this.cycles         = new Contador(0);
         this.num            = new Contador(1);
         this.prepare        = true;
+        this.editing        = true;
         this.e_types         = [{ id: 1, nombre: 'Ejercicio1'}];
     }
 
@@ -170,7 +171,7 @@ const $time_descanso = document.getElementById('time-descanso');
 const $time_main = document.getElementById('time-main');
 const $estado_tabata = document.getElementById('estado_tabata');
 const $estado_ciclos = document.getElementById('estado_ciclos');
-const $numero_tabata = document.getElementById('numero_tabatas')
+const $numero_tabata = document.getElementById('numero_tabatas');
 const tabata = new Tabata();
 
 $('.accion-btn').on('click', function (e) {
@@ -182,19 +183,30 @@ $('.accion-btn').on('click', function (e) {
     if( element.getAttribute)
         refrescar();
 
-    if( toSet === 'cycles' )
+    if( toSet === 'cycles' && tabata.editing)
     {
         if( tipo === 'aumentar')
             tabata.e_types.push({ id: 0, nombre: ''});
         else
             tabata.e_types.pop();
 
-        console.log( tabata.e_types.length )
-        renderElegirEjercicios();
+        $('#modal').modal('show');
     }
 
 } );
 
+
+const disminuirCiclos = ( )=>
+{
+    tabata.cycles.disminuir();
+    tabata.e_types.pop();
+    refrescar();
+};
+
+$('#modal').modal({
+    backdrop: 'static',
+    keyboard: false
+});
 
 let interval = null;
 
