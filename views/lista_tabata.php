@@ -14,7 +14,7 @@
 <?php include 'common/nav.php';
     include_once './../controller/tabata.controller.php';
 
-    $tabatas = TabataController::tabataById( UserSesion::getID() );
+    $tabatas = TabataController::tabataByUserId( UserSesion::getID() );
 
 
 ?>

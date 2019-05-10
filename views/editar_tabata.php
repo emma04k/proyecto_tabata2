@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -13,10 +13,67 @@
     include 'common/nav.php';
     include 'tabata/principal.php';
 ?>
+<div class="mt-5 mb-5 container">
+    <div class="input-group">
+        <input class="form-control" id="nombre_tabata" value="" placeholder="Nombre del tabata"/>
+    </div>
+</div>
 
-<button class="btn btn-success btn-block" id="btn_guardar">Guardar</button>
+
+<div class="mb-3 mt-3 container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Ciclo</th>
+            <th>Ejercicio</th>
+        </tr>
+        </thead>
+        <tbody id="tabla-ejercicios-body">
+
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-warning btn-block" id="btn_editar">Editar</button>
+
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal">Elegir Ejercicio</h5>
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>-->
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="select-tipo-ejercicio" class="col-form-label text-dark">Tipo ejercicio:</label>
+                        <select type="text" class="form-control" id="select-tipo-ejercicio">
+                            <option value="0">Seleccione el tipo ejercicio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="select-ejercicio" class="col-form-label text-dark">Ejercicio:</label>
+                        <select class="form-control" id='select-ejercicio'>
+
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="disminuirCiclos()" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btn_ejercicio_guardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="../public/js/crear_tabata.js"></script>
+<script src="../public/js/ver_tabata.js"></script>
+<script src="../public/js/editar_tabata.js"></script>
 </body>
 </html>
 

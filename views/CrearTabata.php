@@ -25,9 +25,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal">Elegir Ejercicio</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button>-->
                 </div>
                 <div class="modal-body">
                     <form>
@@ -40,22 +40,37 @@
                         <div class="form-group">
                             <label for="select-ejercicio" class="col-form-label text-dark">Ejercicio:</label>
                             <select class="form-control" id='select-ejercicio'>
-                                <option value="0">Seleccione el ejercicio</option>
+
                             </select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="disminuirCiclos()" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary" id="btn_ejercicio_guardar">Guardar</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="mb-3 mt-3 container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ciclo</th>
+                    <th>Ejercicio</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-ejercicios-body">
+
+            </tbody>
+        </table>
+    </div>
+
     <button class="btn btn-success btn-block" id="btn_crear">Crear</button>
 
     <script src="../public/js/crear_tabata.js"></script>
+
 </body>
 </html>
 

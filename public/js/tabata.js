@@ -48,6 +48,13 @@ class Timer {
         this.setDefault();
     }
 
+    set(obj)
+    {
+        this.min = obj.min;
+        this.seg = obj.seg;
+        this.setDefault();
+    }
+
     setDefault()
     {
         this._min = this.min;
@@ -117,7 +124,7 @@ class Tabata {
         this.num            = new Contador(1);
         this.prepare        = true;
         this.editing        = true;
-        this.e_types         = [{ id: 1, nombre: 'Ejercicio1'}];
+        this.e_types         = [];
     }
 
     set( field, type )
@@ -186,11 +193,13 @@ $('.accion-btn').on('click', function (e) {
     if( toSet === 'cycles' && tabata.editing)
     {
         if( tipo === 'aumentar')
-            tabata.e_types.push({ id: 0, nombre: ''});
+            $('#modal').modal('show');
         else
+        {
             tabata.e_types.pop();
-
-        $('#modal').modal('show');
+            renderTablaEjercicio();
+            $tabla_ejercicios.html(renderTablaEjercicio());
+        }
     }
 
 } );
@@ -212,11 +221,19 @@ let interval = null;
 
 
 $('#btn-empezar').on('click',function (e) {
-    if( ! interval )
+
+    if( tabata.cycles.value > 0 )
     {
-        $('.accion-btn').hide(100);
-        interval = setInterval(HandleTabata, 1000);
-    }
+        if( ! interval )
+        {
+            $('.accion-btn').hide(100);
+
+            interval = setInterval(HandleTabata, 1000);
+        }
+    }else
+        alert('Debe existir un ciclo');
+
+
 
 });
 
@@ -225,7 +242,6 @@ $('#btn-pausa').on('click',function (e) {
     {
         clearInterval(interval);
         interval=null;
-
     }
 });
 
@@ -294,7 +310,7 @@ function HandleTabata() {
         $('.accion-btn').show(100);
         clearInterval(interval);
         interval = null;
-        $estado_tabata.innerText = '00:00';
+        $time_main.innerText = '00:00';
     }
 }
 
