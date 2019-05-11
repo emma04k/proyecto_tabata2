@@ -10,6 +10,13 @@ class Contador {
         this.default();
     }
 
+
+    set( value )
+    {
+        this.value = value;
+        this.default();
+    }
+
     default()
     {
         this._value = this.value;
@@ -284,7 +291,11 @@ function HandleTabata() {
                 {
                     tabata.work.disminuir();
                     $time_main.innerText = tabata.work.toString();
-                    $estado_tabata.innerText = 'EJERCICIO';
+
+
+                    let ejercicio = tabata.e_types[ tabata.cycles._value - tabata.cycles.value ];
+
+                    $estado_tabata.innerText = `${ ejercicio.tNombre } - ${ ejercicio.nombre }`;
                 }else if( !tabata.rest.isZero() )
                 {
                     tabata.rest.disminuir();
