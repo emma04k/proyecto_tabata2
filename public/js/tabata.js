@@ -197,7 +197,7 @@ $('.accion-btn').on('click', function (e) {
     if( element.getAttribute)
         refrescar();
 
-    if( toSet === 'cycles' && tabata.editing)
+    if( toSet === 'cycles' || tabata.editing)
     {
         if( tipo === 'aumentar')
             $('#modal').modal('show');
