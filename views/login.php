@@ -1,3 +1,8 @@
+<?php
+require_once ("vendor/autoload.php");
+require_once ("app/auth/auth.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,8 +55,17 @@
                 <div class="footer text-center ">
                     <button type="submit" class="btn btn-info btn-round" id="ingresar">Ingresar</button>
                 </div>
+            <a href="./views/formulario.php"  >Registrarse</a>
+            <br><br>
+            <?php
+            Auth::getUserAuth();
+            ?>
+            <a href="?login=Facebook">Iniciar Sesion con Google</a>
+            <br>
+            <a href="#">Olvidaste la contraseña</a>
 
-                <a href="./views/formulario.php"  >Registrarse</a>
+
+
                 
            
 
