@@ -5,15 +5,16 @@
                 <small>
                     CICLOS
                 </small>
+
                 <div class="pb-3">
                     <small id="estado_ciclos" >
-
                     </small>
                 </div>
                 <div>
                     <small>
                         TABATA
                     </small>
+
                     <div>
                         <small id="numero_tabatas">
 
@@ -23,7 +24,10 @@
             </div>
         </div>
         <div class="col col-md-2  text-center text-white info-title mb-1 pt-3 " id="tabata-title">TABATA
+
+            <img src="" id="gif" width="160" style="margin-top: 20px">
         </div>
+
         <div class="col col-md-3 offset-md-2 text-right">
             <div>
                 <button class="btn btn-round btn-outline-success" id="btn-empezar">

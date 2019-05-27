@@ -186,8 +186,9 @@ const $time_main = document.getElementById('time-main');
 const $estado_tabata = document.getElementById('estado_tabata');
 const $estado_ciclos = document.getElementById('estado_ciclos');
 const $numero_tabata = document.getElementById('numero_tabatas');
+const $gif = document.getElementById('gif');
 const tabata = new Tabata();
-
+tabata.editing= true;
 $('.accion-btn').on('click', function (e) {
     const element = e.currentTarget;
     const toSet = element.parentNode.id;
@@ -197,7 +198,7 @@ $('.accion-btn').on('click', function (e) {
     if( element.getAttribute)
         refrescar();
 
-    if( toSet === 'cycles' || tabata.editing)
+    if( toSet === 'cycles' &&  tabata.editing)
     {
         if( tipo === 'aumentar')
             $('#modal').modal('show');
@@ -256,11 +257,15 @@ $('#btn-detener').on('click', function (e) {
     if( interval )
     {
         tabata.num.reset();
+
         tabata.reset();
-        $('.accion-btn').show(100);
         clearInterval(interval);
         interval = null;
         $time_main.innerText = '00:00';
+        $gif.src = '';
+        $estado_tabata.innerText ='';
+        $estado_ciclos.innerText='';
+        $numero_tabata.innerText='';
     }
 });
 
@@ -294,6 +299,8 @@ function HandleTabata() {
 
 
                     let ejercicio = tabata.e_types[ tabata.cycles._value - tabata.cycles.value ];
+                    $gif.src ='../public/recursos/Gifs/'+`${ ejercicio.archivo }`;
+
 
                     $estado_tabata.innerText = `${ ejercicio.tNombre } - ${ ejercicio.nombre }`;
                 }else if( !tabata.rest.isZero() )
@@ -318,10 +325,14 @@ function HandleTabata() {
     {
         tabata.num.reset();
         tabata.reset();
-        $('.accion-btn').show(100);
         clearInterval(interval);
         interval = null;
         $time_main.innerText = '00:00';
+        $gif.src="";
+        $estado_tabata.innerText ='';
+        $estado_ciclos.innerText='';
+        $numero_tabata.innerText='';
+
     }
 }
 

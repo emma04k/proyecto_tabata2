@@ -23,8 +23,21 @@ peticionTabata.done( ( data ) =>
     refrescar();
     if( !tabata.editing ) //Saber si esta en modo editar
     {
+        let renderTablaEjercicio = ( ) =>
+        {
+            return tabata.e_types.map(( e, index ) =>
+            {
+                return `
+                <tr>
+                    <td width="10%">${ index + 1 }</td>
+                    <td width="90%">${ e.nombre }</td>
+                </tr>
+        `;
+            });
+        };
+
         $editar_nombre.val( data.nombre );
-        $tabla_ejercicios.html(renderTablaEjercicio());
+        $('#tabla-ejercicios-body').html(renderTablaEjercicio());
     }
 
 });

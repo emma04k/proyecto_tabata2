@@ -11,13 +11,15 @@ $registro = new RegistroController();
 
 
 
-if(isset($_SESSION['user'])){
-
+if(isset($_SESSION['user_id'])){
     $user->setUser($userSesion->getCurrentUser());
-    header('Location: views/tabata.php');
+    header('Location: views/lista_tabata.php');
+
 
 }
-include_once 'views/login.php'; 
+
+
+include_once 'views/login.php';
 
 
 

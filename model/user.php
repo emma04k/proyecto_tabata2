@@ -13,10 +13,47 @@ class User extends DB {
         
         if($query->rowCount()){
 
-            return $query->fetch();
+            $user=$query->fetch();
+            if( $user['habilitado'] == '0'){
+                return $user;
+            }else{
+                return false;
+            }
         }else{
             return false;
            
+        }
+    }
+
+
+
+    public static function  getExistingUser($user)
+    {
+        $query = self::connect()->prepare("SELECT * FROM usuario WHERE correo =:user");
+        $query->execute(['user'=>$user]);
+
+        if($query->rowCount()){
+
+            return $query->fetch();
+
+        }else{
+            return false;
+
+        }
+    }
+
+    public static function  getExistingUser_id($id)
+    {
+        $query = self::connect()->prepare("SELECT * FROM usuario WHERE id =:id");
+        $query->execute(['id'=>$id]);
+
+        if($query->rowCount()){
+
+            return $query->fetch();
+
+        }else{
+            return false;
+
         }
     }
 
@@ -34,8 +71,18 @@ class User extends DB {
         return $this->nombre;
     }
 
+    public  static  function editarPerfil($nombre,$pass,$id,$foto,$hab){
+       $query = self::connect()->query("UPDATE usuario SET nombre='$nombre',password = '$pass',foto = '$foto',habilitado='$hab' WHERE  id= $id" );
+       $user=self::getExistingUser_id($id);
+       UserSesion::setCurrentUser($user);
+       return true;
+
+    }
     public static function registroUser($datos,$tabla){
-       
+      if(self::getExistingUser($datos['mail']))
+      {
+          return false;
+      }
         $consulta=  self::connect()->prepare("INSERT INTO $tabla (id,nombre, correo, password, telefono,
           fechanac , sexo, pesokg) VALUES(null,:nombre,:correo,:password,:telefono,:fecha,:sexo,:peso)");
         $consulta->bindParam(':nombre',$datos['name']);
@@ -48,8 +95,6 @@ class User extends DB {
         //return true;
         if($consulta->execute()){
             return true;
-        }else{
-            return false;
         }
 
     

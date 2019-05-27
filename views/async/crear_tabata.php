@@ -2,4 +2,4 @@
     require_once './../../controller/tabata.controller.php';
 
 
-    echo TabataController::crearTabata( $_POST['data'] );
+    echo json_encode(TabataController::crearTabata( $_POST['data'] ));

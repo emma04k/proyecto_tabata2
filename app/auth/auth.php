@@ -1,5 +1,9 @@
  <?php
 
+
+ include_once 'model/user.php';
+ include_once  'controller/registro.controller.php';
+
 class Auth{
     protected  static  $allow = ['Google','Facebook'];
 
@@ -20,12 +24,34 @@ class Auth{
             $adapter = $hybridAuth->authenticate($servicio);
 
             $userProfile = $adapter->getUserProfile();
-
-            var_dump($userProfile);
+             self::storeUser($userProfile);
+            header('Location: views/lista_tabata.php');
 
             die();
         }
     }
+
+    public static  function  storeUser($socialUser)
+    {
+        $user = User::getExistingUser($socialUser->email);
+        if(!$user){
+            $user = array(
+                'name' => $socialUser->firstName,
+                'mail' => $socialUser->email,
+                'pass' => '',
+                'telefono' => '',
+                'fechaNac' => '',
+                'sexo' => '',
+                'peso' => ''
+            );
+            RegistroController::registrar($user);
+
+        }
+
+       UserSesion::setCurrentUser($user);
+    }
+
+
 }
 
 ?>

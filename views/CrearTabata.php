@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crear tabata</title>
     <?php include 'common/head.php'?>
+    <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script>
 </head>
 <body>
     <?php include 'common/nav.php'?>

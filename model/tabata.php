@@ -24,6 +24,7 @@ class TabataModel extends DB
         tabata.numRondas,
         ejercicio.id as idEjercicio,
         ejercicio.nombre as eNombre,
+        ejercicio.archivo as eArchivo,
         tipoejercicio.nombre as tNombre
         FROM tabata  INNER JOIN ejercicioxtabata ON ejercicioxtabata.idTabata =tabata.id INNER JOIN ejercicio  
                                                 ON ejercicio.id =ejercicioxtabata.idEjercicio
@@ -58,7 +59,8 @@ class TabataModel extends DB
             $data['e_types'][ ]    = [
                 'id' => $row['idEjercicio'],
                 'nombre' => $row['eNombre'],
-                'tNombre' => $row['tNombre']
+                'tNombre' => $row['tNombre'],
+                'archivo' => $row['eArchivo']
             ];
         }
 

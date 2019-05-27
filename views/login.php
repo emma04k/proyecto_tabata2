@@ -60,9 +60,9 @@ require_once ("app/auth/auth.php");
             <?php
             Auth::getUserAuth();
             ?>
-            <a href="?login=Facebook">Iniciar Sesion con Google</a>
+            <a href="?login=Google">Iniciar Sesion con Google</a>
             <br>
-            <a href="#">Olvidaste la contraseña</a>
+            <a href="./views/recuperar_contraseña.php">¿Olvidaste la contraseña?</a>
 
 
 

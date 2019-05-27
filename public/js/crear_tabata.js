@@ -13,8 +13,13 @@ $('#btn_crear').on('click', () =>
 
     peticion.done((data) =>
     {
-        alert('Creado con exito');
-        window.location.href = 'lista_tabata.php';
+        swal ( {
+            title: "Tabata creada con exito!",
+            icon: "success",
+        } ).then(( ) => {
+            window.location.href = 'lista_tabata.php';
+        });
+
     });
 });
 
@@ -98,5 +103,7 @@ $btn_ejercicio_guardar.on('click', ( ) =>
         tabata.e_types.push({ id: selectedE, nombre: ejercicio.nombre || ''});
         $('#modal').modal('hide');
         $tabla_ejercicios.html(renderTablaEjercicio());
+
+
     }
 });

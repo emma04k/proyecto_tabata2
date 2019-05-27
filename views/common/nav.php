@@ -40,17 +40,20 @@ UserSesion::privateRoute();
                     <a id="user_name" class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button"
                        aria-haspopup="true" aria-expanded="false">
                         <?php
-
                         echo UserSesion::getNombre();
                         ?>
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"><i class="fas fa-cog icon-margin  text-info"></i> <span
-                                class="text-center">Configuracion</span></a>
+                <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./editar_perfil.php"><i class="fas fa-cog icon-margin  text-info"></i> <span
+                                class="text-center">Editar perfil</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php"><i
                                 class="fas fa-sign-out-alt icon-margin text-info"></i>Cerrar sesión</a>
                     </div>
+                </li>
+
+                <li>
+                    <img src="<?php echo UserSesion::getFoto()?> " alt="Circle Image" class="rounded-circle img-fluid " id="foto-perfil">
                 </li>
 
             </ul>

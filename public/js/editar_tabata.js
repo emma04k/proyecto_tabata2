@@ -16,7 +16,10 @@ $('#btn_editar').on('click', ( ) =>
 
     peticion.done((data) =>
     {
-        alert('Editado con exito');
+        swal ( {
+            title: "Editado con exito!",
+            icon: "success",
+        } ) ;
         window.location.href = 'lista_tabata.php';
     });
 });

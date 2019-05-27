@@ -14,6 +14,15 @@ class UserSesion{
 
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['nombre'] = $user['nombre'];
+        $_SESSION['foto']  = $user['foto'];
+    }
+
+    public static function editarPerfil($nombre,$pass,$id,$foto,$hab){
+      if(User::editarPerfil($nombre,$pass,$id,$foto,$hab)){
+          return ['perfil'=> true];
+      }else{
+          return['perfil' => false];
+      }
     }
 
     public static function getCurrentUser(){
@@ -48,6 +57,10 @@ class UserSesion{
     public static function getID()
     {
         return $_SESSION['user_id'];
+    }
+
+    public static function getFoto(){
+        return $_SESSION['foto'];
     }
 
     public static function privateRoute()
