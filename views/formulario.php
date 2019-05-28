@@ -166,7 +166,7 @@
                         title: "Registrado con exito!",
                         icon: "success",
                     } ).then(( ) => {
-                        window.location.href = '../views/login.php';
+
                     });
 
                     $form[0].reset();

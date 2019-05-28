@@ -68,6 +68,11 @@ class UserSesion{
         if( ! isset($_SESSION['user_id']) )
             header('Location: ../index.php');
     }
+
+    public static function isAdmin( )
+    {
+        return $_SESSION['user_id'] == 2;
+    }
 }
 
 ?>
