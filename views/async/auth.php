@@ -7,3 +7,4 @@ $userForm = $_POST['mail'];
 $passForm = $_POST['pass'];
 
 echo json_encode(UserSesion::auth($userForm, $passForm));
+?>
